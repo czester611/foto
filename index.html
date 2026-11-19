@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Budynki Foto">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#ffffff">
+<title>Budynki Foto</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" href="icon-192.png">
+<link rel="stylesheet" href="style.css">
+<script>
+// diagnostyka: błędy skryptów pokazują się na ekranie i są wysyłane do serwera lokalnego (/__log)
+(function(){function rep(m){try{var d=document.getElementById('dbg');if(!d){d=document.createElement('pre');d.id='dbg';
+d.style.cssText='position:fixed;left:0;right:0;top:0;z-index:99;margin:0;padding:8px;background:#fff;color:#b00;font:11px/1.3 monospace;white-space:pre-wrap;max-height:50%;overflow:auto';
+(document.body||document.documentElement).appendChild(d);}d.textContent+=m+'\n';}catch(e){}
+try{new Image().src='__log?'+encodeURIComponent(m+' | '+navigator.userAgent);}catch(e){}}
+window.addEventListener('error',function(e){rep('ERR '+e.message+' @'+(e.filename||'').split('/').pop()+':'+e.lineno+':'+e.colno);});
+window.addEventListener('unhandledrejection',function(e){rep('REJ '+(e.reason&&e.reason.stack||e.reason));});
+window.__rep=rep;})();
+</script>
+</head>
+<body>
+<div id="main">
+  <header>
+    <img id="logo" src="logo.png" alt="">
+    <div id="status">Logowanie do Google Drive…</div>
+  </header>
+
+  <form id="searchRow" autocomplete="off">
+    <input id="num" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3" placeholder="nr budynku" enterkeyhint="go">
+    <button id="goBtn" type="submit">Pokaż</button>
+  </form>
+
+  <div id="history" class="hscroll"></div>
+  <div id="chips" class="hscroll"></div>
+
+  <div id="content">
+    <div id="loader" hidden>
+      <div id="loaderBox"><img src="logo.png" alt=""><div id="veil"></div></div>
+      <div id="loaderText"></div>
+    </div>
+    <div id="infoPane" hidden></div>
+    <div id="thumbs"></div>
+  </div>
+</div>
+
+<div id="gallery" hidden>
+  <img id="photo" alt="" draggable="false">
+  <div id="counter"></div>
+  <button id="closeGal" aria-label="Zamknij">✕</button>
+</div>
+
+<div id="toast" hidden></div>
+
+<script src="config.js"></script>
+<script src="vendor/xlsx.full.min.js"></script>
+<script src="app.js"></script>
+<script>window.__rep&&window.__rep("OK: skrypty wczytane, "+document.readyState)</script>
+</body>
+</html>
