@@ -1,5 +1,5 @@
 // Service worker: aplikacja działa offline; po deployu nowa wersja pobiera się sama (sieć najpierw, 3 s limitu).
-const V = 'budynki-foto-v1'; // zmień przy każdej publikacji nowej wersji
+const V = 'budynki-foto-v2'; // zmień przy każdej publikacji nowej wersji
 const SHELL = ['./', 'index.html', 'app.js', 'style.css', 'config.js', 'manifest.webmanifest', 'logo.png', 'icon-192.png',
   'vendor/xlsx.full.min.js', 'vendor/pdf.min.js', 'vendor/pdf.worker.min.js'];
 
